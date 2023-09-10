@@ -1,0 +1,13 @@
+---
+layout: layout.njk
+---
+
+<h2>All Businesses</h2>
+{% for business in businesses %}
+    <article class="biz-listing">
+        <p class="category">{{business.category}}</p>
+        <h2><a href="/business/{{business.name|slugify}}">{{business.name}}</a></h2>
+        <p>{{business.address}}</p>
+    </article>
+{% endfor %}
+

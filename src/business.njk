@@ -1,0 +1,29 @@
+---
+layout: layout.njk
+pagination:
+    data: businesses
+    size: 1
+    alias: business
+permalink: "business/{{ business.name | slugify }}/"
+---
+<div class="breadcrumbs">
+    <a href="/">Business Directory</a> > 
+    <a href="/">{{business.category}}</a> > 
+    <span>{{business.name}}</span>
+</div>
+<article class="biz-detail">
+    <h2>{{business.name}}</h2>
+    
+    <p>{{business.description}}</p>
+
+    <p class="info"><img src="/images/person.svg" />{{business.contact}}</p>
+    <p class="info"><img src="/images/phone.svg" />{{business.phone}}</p>
+    <p class="info"><img src="/images/web.svg" />{{business.website}}</p>
+    <p class="info"><img src="/images/address.svg" />{{business.address}}</p>
+    <p class="info"><img src="/images/email.svg" />{{business.email}}</p>
+    {% if business.hasDiscount %}
+        <div class="has-discount">
+        <h3>Discount for Friends of Bangkok Prep</h3>
+        </div>
+    {% endif %}
+</article>
