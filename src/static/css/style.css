@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
+
+/* GENERAL STYLING */
+
 :root {
     --fobp-text: #333237;
     --fobp-orange: #FAA819;
@@ -79,6 +82,12 @@ footer {
     border-top: 1px solid #eee;
 }
 
+
+/* HOME PAGE */
+.main-intro {
+    margin-bottom: var(--space4);
+}
+
 .biz-listing {
     border: 1px lightgray solid;
     padding: var(--space4);
@@ -86,22 +95,33 @@ footer {
     margin-bottom: 1em;
 }
 
-@media screen and (min-width: 768px) {
-    .biz-detail {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-    }
-
-    .biz-detail .col-main {
-        flex: 0.7;
-    }
-
-    .biz-detail .col-secondary {
-        flex: 0.3;
-        padding: var(--space4);
-    }
+.biz-listing .category {
+    font-weight: bold;
+    margin: 0;
 }
+
+.biz-listing h2 {
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    gap: var(--space4);
+}
+
+.biz-listing h2 .logo {
+    width: 50px;
+    height: 50px;
+    background-color: var(--fobp-lightgray);
+}
+
+.biz-listing h2 .logo img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+
+/* DETAIL PAGE */
+
 
 .biz-detail aside {
     margin-top: var(--space4);
@@ -125,26 +145,43 @@ footer {
     margin-bottom: 0;
 }
 
-.biz-listing h2 {
-    font-size: 32px;
-}
-
-.info {
+.biz-detail .info {
     display: flex;
     gap: var(--space4);
     align-items: center;
     margin-top: var(--space4);
 }
 
-.has-discount {
+
+.biz-detail .has-discount {
     background-color: #FAA81926;
     padding: var(--space4);
     border-radius: var(--space4);
 }
 
-.has-discount h3 {
+.biz-detail .has-discount h3 {
     color: var(--fobp-orange);
 }
+
+
+
+@media screen and (min-width: 768px) {
+    .biz-detail {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .biz-detail .col-main {
+        flex: 0.7;
+    }
+
+    .biz-detail .col-secondary {
+        flex: 0.3;
+        padding: var(--space4);
+    }
+}
+
 
 .tags {
     display: flex;
@@ -168,10 +205,10 @@ footer {
     margin-right: var(--space2);
 }
 
-.tag-discount {
+.tags .tag.tag-discount {
     background-color: var(--fobp-orange);
 }
 
-.tag-parent-run {
+.tags .tag.tag-parent-run {
     background-color: var(--fobp-blue);
 }

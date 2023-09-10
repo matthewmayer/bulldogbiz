@@ -2,12 +2,34 @@
 layout: layout.njk
 ---
 
-<h2>All Businesses</h2>
+<p class="main-intro">Browse through our highlighted businesses, featuring business run by Bangkok Prep parents, as well as local businesses who offer discounts and deals to FOBP parents.</p>
 {% for business in businesses %}
     <article class="biz-listing">
         <p class="category">{{business.category}}</p>
-        <h2><a href="/business/{{business.name|slugify}}">{{business.name}}</a></h2>
-        <p>{{business.address}}</p>
+        
+        <h2>
+        {% if business.logo and business.logo[0] %}
+                <div class="logo">
+                    <img src="{{business.logo[0].thumbnails.large.url}}" />
+                </div>
+        {% else %}
+            <div class="logo placeholderlogo"></div>
+        {% endif %}
+        <a href="/business/{{business.name|slugify}}">{{business.name}}</a></h2>
+        <div class="tags">
+            {% if business.hasDiscount %}
+                <div class="tag tag-discount">
+                    <img src="/images/coupon-white.svg" alt="" />
+                    <p>Discount for FOBP</p>
+                </div>
+            {% endif %}
+            {% if business.parentRun %}
+                <div class="tag tag-parent-run">
+                    <img src="/images/parent-white.svg" alt="" />
+                    <p>Parent-run</p>
+                </div>
+            {% endif %}
+        </div>
     </article>
 {% endfor %}
 

@@ -64,7 +64,7 @@ permalink: "business/{{ business.name | slugify }}/"
         {% endif %}
     </div>
     <div class="col col-secondary">
-        {% if business.logo and business.image[0] %}
+        {% if business.image and business.image[0] %}
             <div class="image">
                 <img src="{{business.image[0].thumbnails.large.url}}" />
             </div>
