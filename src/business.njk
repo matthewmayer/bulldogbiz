@@ -12,18 +12,67 @@ permalink: "business/{{ business.name | slugify }}/"
     <span>{{business.name}}</span>
 </div>
 <article class="biz-detail">
-    <h2>{{business.name}}</h2>
-    
-    <p>{{business.description}}</p>
-
-    <p class="info"><img src="/images/person.svg" />{{business.contact}}</p>
-    <p class="info"><img src="/images/phone.svg" />{{business.phone}}</p>
-    <p class="info"><img src="/images/web.svg" />{{business.website}}</p>
-    <p class="info"><img src="/images/address.svg" />{{business.address}}</p>
-    <p class="info"><img src="/images/email.svg" />{{business.email}}</p>
-    {% if business.hasDiscount %}
-        <div class="has-discount">
-        <h3>Discount for Friends of Bangkok Prep</h3>
+    <div class="col col-main">
+        <h2>
+            {% if business.logo and business.logo[0] %}
+                <div class="logo">
+                    <img src="{{business.logo[0].thumbnails.large.url}}" />
+                </div>
+            {% endif %}
+            <span>{{business.name}}</span>
+        </h2>
+        <div class="tags">
+            {% if business.hasDiscount %}
+                <div class="tag tag-discount">
+                    <img src="/images/coupon-white.svg" alt="" />
+                    <p>Discount for FOBP</p>
+                </div>
+            {% endif %}
+            {% if business.parentRun %}
+                <div class="tag tag-parent-run">
+                    <img src="/images/parent-white.svg" alt="" />
+                    <p>Parent-run</p>
+                </div>
+            {% endif %}
         </div>
-    {% endif %}
+
+        
+        <p>{{business.description}}</p>
+        <aside>
+            {% if business.contact %}
+                <p class="info"><img src="/images/person.svg" />{{business.contact}}</p>
+            {% endif %}
+            
+            {% if business.phone %}
+                <p class="info"><img src="/images/phone.svg" />{{business.phone}}</p>
+            {% endif %}
+            {% if business.website %}
+                <p class="info"><img src="/images/web.svg" />{{business.website}}</p>
+            {% endif %}
+            {% if business.address %}
+                <p class="info"><img src="/images/address.svg" />{{business.address}}</p>
+            {% endif %}
+            {% if business.email %}
+                <p class="info"><img src="/images/email.svg" />{{business.email}}</p>
+            {% endif %}
+        </aside>
+        {% if business.hasDiscount %}
+            <div class="has-discount">
+                <h3>Discount for Friends of Bangkok Prep</h3>
+                <p>{{business.discountDetails}}</p>
+            </div>
+        {% endif %}
+    </div>
+    <div class="col col-secondary">
+        {% if business.logo and business.image[0] %}
+            <div class="image">
+                <img src="{{business.image[0].thumbnails.large.url}}" />
+            </div>
+        {% endif %}
+        {% if business.coordinates %}
+            <iframe width="100%" height="450" style="border:0" loading="lazy" allowfullscreen
+src="https://www.google.com/maps/embed/v1/view?center={{business.coordinates}}&zoom=16&key={{api.GOOGLE_API_KEY}}"></iframe>
+        {% endif %}
+       
+    </div>
 </article>

@@ -34,7 +34,7 @@ module.exports = function () {
                     console.error(err);
                     return reject(err);
                 }
-                console.dir(allRecords)
+                console.log(JSON.stringify(allRecords, null, 4))
                 return resolve(allRecords)
             });
     });
