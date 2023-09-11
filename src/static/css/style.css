@@ -213,3 +213,11 @@ footer {
 .tags .tag.tag-parent-run {
     background-color: var(--fobp-blue);
 }
+
+.add-info {
+    font-size: larger;
+}
+
+a {
+    font-weight: bold;
+}
