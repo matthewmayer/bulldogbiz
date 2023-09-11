@@ -18,7 +18,8 @@ module.exports = function () {
     return new Promise((resolve, reject) => {
         let allRecords = []
         base(process.env.AIRTABLE_TABLE).select({
-            maxRecords: 1000
+            maxRecords: 1000,
+            filterByFormula: "{Published} = TRUE()",
         }).eachPage(function page(records, fetchNextPage) {
                 records.forEach(function (record) {
                     const newRecord = {}
