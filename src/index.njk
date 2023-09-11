@@ -10,7 +10,7 @@ layout: layout.njk
         <h2>
         {% if business.logo and business.logo[0] %}
                 <div class="logo">
-                    <img src="{{business.logo[0].thumbnails.large.url}}" />
+                    {% image business.logo[0].thumbnails.large.url, business.name %}
                 </div>
         {% else %}
             <div class="logo placeholderlogo"></div>
