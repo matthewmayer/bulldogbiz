@@ -35,8 +35,12 @@ module.exports = function () {
                     console.error(err);
                     return reject(err);
                 }
-                console.log(JSON.stringify(allRecords, null, 4))
-                return resolve(allRecords)
+                const categories = [...new Set(allRecords.map(record => record.category))].sort()
+                //console.log(JSON.stringify(allRecords, null, 4))
+                return resolve({
+                    list: allRecords,
+                    categories
+                })
             });
     });
 }

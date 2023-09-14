@@ -3,14 +3,33 @@ layout: layout.njk
 ---
 
 <p class="main-intro">Browse through our highlighted businesses, featuring business run by Bangkok Prep parents, as well as local businesses who offer discounts and deals to FOBP parents.</p>
-{% for business in businesses %}
-    <article class="biz-listing">
+<div class="form">
+    <div>
+    Show:
+    </div>
+    <select>
+        <option value="">All businesses</option>
+        {% for category in businesses.categories %}
+            <option value="{{category|slugify}}">{{category}}</option>
+        {% endfor %}
+    </select>
+    <label>
+        <input type="checkbox" id="parentrun" />
+        <span>Parent-run</span>
+    </label>
+    <label>
+        <input type="checkbox" id="discount" />
+        <span>Discount for FOBP</span>
+    </label>
+</div>
+{% for business in businesses.list %}
+    <article class="biz-listing category-{{business.category|slugify}}">
         {% if business.logo and business.logo[0] %}
-                <div class="logo">
+                <a href="/business/{{business.name|slugify}}" class="logo">
                     {% image business.logo[0].thumbnails.large.url, business.name %}
-                </div>
+                </a>
         {% else %}
-            <div class="logo placeholderlogo"></div>
+            <a href="/business/{{business.name|slugify}}" class="logo placeholderlogo"></a>
         {% endif %}
         <div class="meta">
             <p class="category category{{business.category|slugify}}">{{business.category}}</p>
@@ -38,3 +57,4 @@ layout: layout.njk
     <a target="_blank" href="https://airtable.com/appFm2qAjLRBVFC7B/shrB7n2M96Lz7yrPz">Submit your business!</a>
 </p>
 </article>
+<script src="/js/filter.js"></script>

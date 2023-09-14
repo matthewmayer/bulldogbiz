@@ -14,6 +14,14 @@
     --space2: 8px;
     --space4: 16px;
     --space8: 32px;
+    --logo-size: 180px;
+}
+
+@media screen and (max-width:480px) {
+    :root {
+        --logo-size: 60px;
+    }
+
 }
 
 * {
@@ -27,6 +35,8 @@ body {
     font-family: Inter, Arial, Helvetica, sans-serif;
     color: var(--fobp-text);
 }
+
+
 
 a {
     color: var(--fobp-link);
@@ -95,6 +105,36 @@ footer {
     font-size: 18px;
 }
 
+.form {
+    background-color: var(--fobp-lightgray);
+    padding: var(--space4);
+    border-radius: var(--space4);
+    display: flex;
+    align-items: center;
+    gap: var(--space4);
+    flex-direction: row;
+    margin-bottom: var(--space4);
+    font-size: 18px;
+}
+
+@media screen and (max-width:480px) {
+    .form {
+        flex-wrap: wrap;
+
+    }
+}
+
+.form select {
+    padding: var(--space1);
+    font-size: 18px;
+}
+
+.form input[type="checkbox"] {
+    font-size: 18px;
+}
+
+
+
 .biz-listing {
     border: 1px lightgray solid;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1);
@@ -102,6 +142,8 @@ footer {
     display: flex;
     flex-direction: row;
 }
+
+
 
 .biz-listing .meta {
     padding: var(--space4);
@@ -115,24 +157,40 @@ footer {
 
 .biz-listing h2 {
     font-size: 32px;
-    display: flex;
-    align-items: center;
-    gap: var(--space4);
 }
 
 .biz-listing .logo {
-    flex-basis: 180px;
+    flex-basis: var(--logo-size);
     flex-grow: 0;
-    width: 180px;
-    height: 180px;
+    width: var(--logo-size);
+    height: var(--logo-size);
     background-color: var(--fobp-lightgray);
 }
 
+@media screen and (max-width:480px) {
+    .biz-listing {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .biz-listing h2 {
+        font-size: 24px;
+    }
+
+    .biz-listing .tags {
+        justify-content: center
+    }
+
+}
+
 .biz-listing .logo img {
-    width: 180px;
-    height: 180px;
+    width: var(--logo-size);
+    height: var(--logo-size);
     object-fit: cover;
 }
+
+
 
 .biz-listing .tags .tag {
     padding: var(--space1) var(--space2);
@@ -227,6 +285,14 @@ footer {
     width: 16px;
     height: 16px;
     margin-right: var(--space2);
+}
+
+@media screen and (max-width:480px) {
+    .tags .tag img {
+        display: none;
+    }
+
+
 }
 
 .tags .tag.tag-discount {
