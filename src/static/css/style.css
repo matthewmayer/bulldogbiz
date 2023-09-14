@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 
 
 /* GENERAL STYLING */
 
 :root {
+    --fobp-red: #A32D08;
     --fobp-text: #333237;
     --fobp-orange: #FAA819;
     --fobp-blue: #3AB9DB;
@@ -12,6 +13,7 @@
     --space1: 4px;
     --space2: 8px;
     --space4: 16px;
+    --space8: 32px;
 }
 
 * {
@@ -65,11 +67,12 @@ main {
 }
 
 header {
-    background-color: orange;
-    padding: var(--space2) 0;
+    background-color: white;
+    padding: var(--space1) 0;
     text-align: center;
     color: white;
-    border-bottom: 1px solid #eee;
+    border-bottom: 5px var(--fobp-orange) solid;
+
 }
 
 header h1 {
@@ -85,14 +88,24 @@ footer {
 
 /* HOME PAGE */
 .main-intro {
-    margin-bottom: var(--space4);
+    margin-top: var(--space4);
+    margin-bottom: var(--space8);
+    font-weight: 500;
+    text-align: center;
+    font-size: 18px;
 }
 
 .biz-listing {
     border: 1px lightgray solid;
-    padding: var(--space4);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1);
     margin-bottom: 1em;
+    display: flex;
+    flex-direction: row;
+}
+
+.biz-listing .meta {
+    padding: var(--space4);
+    flex: 1;
 }
 
 .biz-listing .category {
@@ -107,16 +120,26 @@ footer {
     gap: var(--space4);
 }
 
-.biz-listing h2 .logo {
-    width: 50px;
-    height: 50px;
+.biz-listing .logo {
+    flex-basis: 180px;
+    flex-grow: 0;
+    width: 180px;
+    height: 180px;
     background-color: var(--fobp-lightgray);
 }
 
-.biz-listing h2 .logo img {
-    width: 50px;
-    height: 50px;
+.biz-listing .logo img {
+    width: 180px;
+    height: 180px;
     object-fit: cover;
+}
+
+.biz-listing .tags .tag {
+    padding: var(--space1) var(--space2);
+}
+
+.biz-listing .tags .tag p {
+    font-size: 14px;
 }
 
 
@@ -215,6 +238,13 @@ footer {
 }
 
 .add-info {
+    display: flex;
+    width: 100%;
+    font-weight: 500;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 180px;
     font-size: larger;
 }
 
