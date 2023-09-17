@@ -47,13 +47,15 @@ permalink: "business/{{ business.name | slugify }}/"
                 <p class="info"><img src="/images/phone.svg" />{{business.phone}}</p>
             {% endif %}
             {% if business.website %}
-                <p class="info"><img src="/images/web.svg" />{{business.website}}</p>
+                <p class="info"><img src="/images/web.svg" />
+                    <a href="{{business.website}}">{{business.website}}</a>
+                </p>
             {% endif %}
             {% if business.address %}
                 <p class="info"><img src="/images/address.svg" />{{business.address}}</p>
             {% endif %}
-            {% if business.email %}
-                <p class="info"><img src="/images/email.svg" />{{business.email}}</p>
+            {% if business.publicEmail %}
+                <p class="info"><img src="/images/email.svg" />{{business.publicEmail}}</p>
             {% endif %}
         </aside>
         {% if business.hasDiscount %}
