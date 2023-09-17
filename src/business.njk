@@ -5,6 +5,8 @@ pagination:
     size: 1
     alias: business
 permalink: "business/{{ business.name | slugify }}/"
+eleventyComputed:
+    title: "{{ business.name | safe}} | Bulldog Biz - Business Directory from Friends of Bangkok Prep"
 ---
 <div class="breadcrumbs">
     <a href="/">Business Directory</a> > 
