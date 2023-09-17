@@ -85,8 +85,54 @@ header {
 
 }
 
-header h1 {
-    font-size: 22px;
+header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+@media screen and (min-width:720px) {
+    header .container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    header h1 {
+        flex-basis: 200px;
+        flex-grow: 1;
+        max-width: 300px;
+
+    }
+}
+
+
+header nav {
+
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: var(--space4);
+}
+
+@media screen and (min-width:720px) {
+    header nav {
+        margin-right: var(--space2);
+        margin-bottom: 0;
+    }
+}
+
+header nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: center;
+    gap: var(--space8);
+}
+
+header nav ul li {
+    display: block;
 }
 
 footer {
