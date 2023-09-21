@@ -233,7 +233,7 @@ footer {
 .biz-listing .logo img {
     width: var(--logo-size);
     height: var(--logo-size);
-    object-fit: cover;
+    object-fit: contain;
 }
 
 
@@ -258,7 +258,7 @@ footer {
 .biz-detail .logo img {
     width: 100px;
     height: 100px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .biz-detail .image img {
