@@ -26,7 +26,9 @@ module.exports = function () {
                     Object.keys(record.fields).forEach(key => {
                         newRecord[camelCase(key)] = record.fields[key]
                     })
+                    newRecord.createdTime = record._rawJson.createdTime
                     allRecords.push(newRecord);
+
                 });
                 fetchNextPage();
             },
@@ -36,7 +38,15 @@ module.exports = function () {
                     return reject(err);
                 }
                 const categories = [...new Set(allRecords.map(record => record.category))].sort()
-                //console.log(JSON.stringify(allRecords, null, 4))
+                allRecords.sort((a, b) => {
+                    if (a.createdTime < b.createdTime) {
+                        return 1
+                    }
+                    if (a.createdTime > b.createdTime) {
+                        return -1
+                    }
+                    return 0
+                })
                 return resolve({
                     list: allRecords,
                     categories
