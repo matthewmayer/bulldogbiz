@@ -39,6 +39,11 @@ module.exports = function () {
                 }
                 const categories = [...new Set(allRecords.map(record => record.category))].sort()
                 allRecords.sort((a, b) => {
+                    if (a.featured && !b.featured) {
+                        return -1
+                    } else if (!a.featured && b.featured) {
+                        return 1
+                    }
                     if (a.createdTime < b.createdTime) {
                         return 1
                     }

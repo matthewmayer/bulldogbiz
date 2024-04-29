@@ -349,6 +349,10 @@ footer {
     background-color: var(--fobp-blue);
 }
 
+.tags .tag.tag-featured {
+    background-color: var(--fobp-red);
+}
+
 .add-info {
     display: flex;
     width: 100%;

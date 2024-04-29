@@ -23,6 +23,10 @@ Browse through our {{ businesses.list.length }} highlighted businesses, featurin
         <input type="checkbox" id="discount" />
         <span>Discount for FOBP</span>
     </label>
+    <label>
+        <input type="checkbox" id="featured" />
+        <span>Discount for FOBP</span>
+    </label>
 </div>
 {% for business in businesses.list %}
     <article class="biz-listing category-{{business.category|slugify}}">
@@ -48,6 +52,12 @@ Browse through our {{ businesses.list.length }} highlighted businesses, featurin
                     <div class="tag tag-parent-run">
                         <img src="/images/parent-white.svg" alt="" />
                         <p>Parent-run</p>
+                    </div>
+                {% endif %}
+                {% if business.featured %}
+                    <div class="tag tag-featured">
+                        <img src="/images/featured-white.svg" alt="" />
+                        <p>Featured</p>
                     </div>
                 {% endif %}
             </div>
