@@ -1,0 +1,17 @@
+---
+layout: layout.njk
+title: Bulldog Biz - Business Directory from Friends of Bangkok Prep
+---
+ <article class="gallery">
+{% for business in businesses.list %}
+   
+        {% if business.logo and business.logo[0] %}
+                <a href="/business/{{business.name|slugify}}" class="logo">
+                    {% image business.logo[0].thumbnails.large.url, business.name %}
+                </a>
+        {% else %}
+            <a href="/business/{{business.name|slugify}}" class="logo placeholderlogo"></a>
+        {% endif %}
+    
+{% endfor %}
+</article>

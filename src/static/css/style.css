@@ -367,3 +367,22 @@ footer {
 a {
     font-weight: bold;
 }
+
+.gallery {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+
+}
+
+.gallery a {
+    display: block;
+}
+
+.gallery img {
+    width: var(--logo-size);
+    height: var(--logo-size);
+    object-fit: contain;
+    display: block;
+}
