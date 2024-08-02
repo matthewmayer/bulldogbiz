@@ -181,6 +181,17 @@ footer {
     font-size: 18px;
 }
 
+@media screen and (max-width:800px) {
+    .form {
+        flex-wrap: wrap;
+    }
+
+    .form label {
+        width: 100%;
+        display: block;
+    }
+}
+
 
 
 .biz-listing {
