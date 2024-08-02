@@ -28,6 +28,7 @@ Browse through our {{ businesses.list.length }} highlighted businesses and commu
         <span>Featured</span>
     </label>
 </div>
+<div class="biz-listings">
 {% for business in businesses.list %}
     <article class="biz-listing category-{{business.category|slugify}}">
         {% if business.logo and business.logo[0] %}
@@ -64,6 +65,7 @@ Browse through our {{ businesses.list.length }} highlighted businesses and commu
         </div>
     </article>
 {% endfor %}
+</div>
 <article class="biz-listing">
 <p class="add-info">Interested in being on the directory? 
     <a target="_blank" href="/add" target="_blank">Add your business!</a>

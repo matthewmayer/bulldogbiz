@@ -10,11 +10,13 @@
     --fobp-blue: #3AB9DB;
     --fobp-link: #224A81;
     --fobp-lightgray: #EFEFEF;
+    --fobp-mediumgray: #777;
+    --space0: 2px;
     --space1: 4px;
     --space2: 8px;
     --space4: 16px;
     --space8: 32px;
-    --logo-size: 180px;
+    --logo-size: 150px;
 }
 
 @media screen and (max-width:480px) {
@@ -189,20 +191,35 @@ footer {
     flex-direction: row;
 }
 
+@media screen and (min-width:1024px) {
+    .biz-listings {
+        display: flex;
+        gap: 0 16px;
+        flex-wrap: wrap;
+    }
+
+    .biz-listing {
+        width: calc(50% - 8px)
+    }
+}
+
 
 
 .biz-listing .meta {
-    padding: var(--space4);
+    padding: var(--space2) var(--space4);
     flex: 1;
 }
 
 .biz-listing .category {
     font-weight: bold;
+    font-size: 14px;
+    color: var(--fobp-mediumgray);
     margin: 0;
 }
 
 .biz-listing h2 {
-    font-size: 32px;
+    font-size: 28px;
+    margin-top: 0px;
 }
 
 .biz-listing .logo {
@@ -238,12 +255,14 @@ footer {
 
 
 
+
 .biz-listing .tags .tag {
     padding: var(--space1) var(--space2);
 }
 
 .biz-listing .tags .tag p {
-    font-size: 14px;
+    font-size: 12px;
+    line-height: inherit;
 }
 
 
@@ -313,6 +332,7 @@ footer {
 
 .tags {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--space2);
     margin-top: var(--space4);
     margin-bottom: var(--space4);
